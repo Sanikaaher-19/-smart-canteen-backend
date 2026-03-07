@@ -89,6 +89,10 @@ public class OrderService {
         return orderRepo.findByStatus(status);
     }
 
+    public List<Order> getOrdersByUserEmail(String email) {
+        return orderRepo.findByUserEmail(email);
+    }
+
     @Transactional
     public Order cancelOrder(Long orderId, String userEmail) {
         Order order = orderRepo.findById(orderId)

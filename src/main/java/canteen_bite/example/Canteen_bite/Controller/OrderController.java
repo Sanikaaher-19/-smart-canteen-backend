@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 import canteen_bite.example.Canteen_bite.security.JwtService;
 
@@ -44,17 +45,24 @@ public class OrderController {
     @GetMapping("/status/{status}")
     public List<Order> byStatus(@PathVariable String status) { return orderService.getByStatus(status); }
 
-    @PutMapping("/{id}/cancel")
-    public ResponseEntity<Order> cancelOrder(@PathVariable Long id, @RequestHeader("Authorization") String token) {
-        // Extract user email from JWT token (assuming JwtService is available)
-        // For simplicity, assuming token starts with "Bearer " and we can decode it
-        // In a real app, inject JwtService and use it to get user details
-        String userEmail = extractUserEmailFromToken(token); // Implement this method
+    @GetMapping("/user")
+    public List<Order> getUserOrders(@RequestHeader("Authorization") String token) {
         try {
+            String userEmail = extractUserEmailFromToken(token);
+            return orderService.getOrdersByUserEmail(userEmail);
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Invalid token or user not found");
+        }
+    }
+
+    @PutMapping("/{id}/cancel")
+    public ResponseEntity<?> cancelOrder(@PathVariable Long id, @RequestHeader("Authorization") String token) {
+        try {
+            String userEmail = extractUserEmailFromToken(token);
             Order cancelledOrder = orderService.cancelOrder(id, userEmail);
             return ResponseEntity.ok(cancelledOrder);
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().build(); // Or more specific error handling
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
         }
     }
 
