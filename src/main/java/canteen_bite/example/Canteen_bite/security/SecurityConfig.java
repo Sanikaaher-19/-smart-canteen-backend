@@ -17,6 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
+
     private final JwtService jwtService;
     private final AuthUserService authUserService;
 
@@ -32,28 +33,45 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            .cors(Customizer.withDefaults())
-            .and()
-            .csrf().disable()
-            .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/error").permitAll()
-                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll()
 
-                // Admin endpoints
-                .requestMatchers("/api/admin/**").hasRole(Role.ADMIN.name())
+        HttpSecurity httpSecurity = http
+                .cors(Customizer.withDefaults())
+                .csrf().disable()
 
-                // Kitchen endpoints (KITCHEN_STAFF or ADMIN)
-                .requestMatchers("/api/kitchen/**").hasAnyRole(Role.KITCHEN_STAFF.name(), Role.ADMIN.name())
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
 
-                .anyRequest().authenticated()
-            )
-            .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-            .httpBasic(Customizer.withDefaults());
+                .authorizeHttpRequests(auth -> auth
+
+                        // Allow CORS preflight requests
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
+                        // Public auth endpoints
+                        .requestMatchers("/api/auth/**").permitAll()
+
+                        // Public menu
+                        .requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll()
+
+                        // Swagger / error
+                        .requestMatchers("/error").permitAll()
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+
+                        // Admin endpoints
+                        .requestMatchers("/api/admin/**")
+                        .hasRole(Role.ADMIN.name())
+
+                        // Kitchen endpoints
+                        .requestMatchers("/api/kitchen/**")
+                        .hasAnyRole(Role.KITCHEN_STAFF.name(), Role.ADMIN.name())
+
+                        .anyRequest().authenticated()
+                )
+
+                .addFilterBefore(
+                        jwtAuthenticationFilter(),
+                        UsernamePasswordAuthenticationFilter.class
+                );
 
         return http.build();
     }
