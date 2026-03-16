@@ -34,44 +34,42 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        HttpSecurity httpSecurity = http
-                .cors(Customizer.withDefaults())
-                .csrf().disable()
+        http.cors(Customizer.withDefaults());
 
-                .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                )
+        http.csrf(csrf -> csrf.disable());
 
-                .authorizeHttpRequests(auth -> auth
+        http.sessionManagement(session ->
+                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        );
 
-                        // Allow CORS preflight requests
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+        http.authorizeHttpRequests(auth -> auth
 
-                        // Public auth endpoints
-                        .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-                        // Public menu
-                        .requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll()
+                .requestMatchers("/api/auth/**").permitAll()
 
-                        // Swagger / error
-                        .requestMatchers("/error").permitAll()
-                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                .requestMatchers("/error").permitAll()
+                .requestMatchers("/v3/api-docs/**").permitAll()
+                .requestMatchers("/swagger-ui/**").permitAll()
+                .requestMatchers("/swagger-ui.html").permitAll()
 
-                        // Admin endpoints
-                        .requestMatchers("/api/admin/**")
-                        .hasRole(Role.ADMIN.name())
+                .requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll()
 
-                        // Kitchen endpoints
-                        .requestMatchers("/api/kitchen/**")
-                        .hasAnyRole(Role.KITCHEN_STAFF.name(), Role.ADMIN.name())
+                .requestMatchers("/api/admin/**")
+                .hasRole(Role.ADMIN.name())
 
-                        .anyRequest().authenticated()
-                )
+                .requestMatchers("/api/kitchen/**")
+                .hasAnyRole(Role.KITCHEN_STAFF.name(), Role.ADMIN.name())
 
-                .addFilterBefore(
-                        jwtAuthenticationFilter(),
-                        UsernamePasswordAuthenticationFilter.class
-                );
+                .anyRequest().authenticated()
+        );
+
+        http.addFilterBefore(
+                jwtAuthenticationFilter(),
+                UsernamePasswordAuthenticationFilter.class
+        );
+
+        http.httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
