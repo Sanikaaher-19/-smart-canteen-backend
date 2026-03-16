@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/admin")
-@CrossOrigin(origins = "${app.frontend.origin:http://localhost:3000}")
+@CrossOrigin(origins = "${app.frontend.origin:https://smart-canteen-bite.netlify.app/}")
 @PreAuthorize("hasRole('ADMIN')")
 public class AdminController {
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/kitchen")
-@CrossOrigin(origins = "${app.frontend.origin:http://localhost:3000}")
+@CrossOrigin(origins = "${app.frontend.origin:https://smart-canteen-bite.netlify.app/}")
 @PreAuthorize("hasAnyRole('KITCHEN_STAFF', 'ADMIN')")
 public class KitchenController {
 

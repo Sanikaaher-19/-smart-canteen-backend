@@ -25,8 +25,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
             }
         }
         if (origins.isEmpty()) {
-            origins.add("http://localhost:3000");
-            origins.add("http://127.0.0.1:3000");
+            origins.add("https://smart-canteen-bite.netlify.app/");
+            origins.add("https://smart-canteen-bite.netlify.app/");
         }
 
         registry.addMapping("/**") // Allow CORS on all endpoints

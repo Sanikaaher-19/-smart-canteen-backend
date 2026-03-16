@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "${app.frontend.origin:http://localhost:3000}")
+@CrossOrigin(origins = "${app.frontend.origin:https://smart-canteen-bite.netlify.app/}")
 public class AuthController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;

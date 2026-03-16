@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/menu")
-@CrossOrigin(origins = "${app.frontend.origin:http://localhost:3000}")
+@CrossOrigin(origins = "${app.frontend.origin:https://smart-canteen-bite.netlify.app/}")
 public class MenuController {
     private final MenuService menuService;
     public MenuController(MenuService menuService) { this.menuService = menuService; }

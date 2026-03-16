@@ -13,7 +13,7 @@ import canteen_bite.example.Canteen_bite.security.JwtService;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "${app.frontend.origin:http://localhost:3000}")
+@CrossOrigin(origins = "${app.frontend.origin:https://smart-canteen-bite.netlify.app/}")
 public class OrderController {
     private final OrderService orderService;
     private final JwtService jwtService;
