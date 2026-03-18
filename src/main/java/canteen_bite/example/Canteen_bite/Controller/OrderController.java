@@ -6,8 +6,10 @@ import canteen_bite.example.Canteen_bite.service.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import canteen_bite.example.Canteen_bite.security.JwtService;
 
@@ -46,10 +48,23 @@ public class OrderController {
     public List<Order> byStatus(@PathVariable String status) { return orderService.getByStatus(status); }
 
     @GetMapping("/user")
-    public List<Order> getUserOrders(@RequestHeader("Authorization") String token) {
+    public List<Map<String, Object>> getUserOrders(@RequestHeader("Authorization") String token) {
         try {
             String userEmail = extractUserEmailFromToken(token);
-            return orderService.getOrdersByUserEmail(userEmail);
+            return orderService.getOrdersByUserEmail(userEmail).stream().map(order -> {
+                var orderTime = order.getOrderTime();
+                Long orderTimeMs = orderTime == null ? null
+                        : orderTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+                return Map.<String, Object>of(
+                        "id", order.getId(),
+                        "status", order.getStatus(),
+                        "orderTime", orderTimeMs,
+                        "createdAt", orderTimeMs,
+                        "tableNumber", order.getTableNumber(),
+                        "totalAmount", order.getTotalAmount(),
+                        "items", order.getItems()
+                );
+            }).collect(Collectors.toList());
         } catch (RuntimeException e) {
             throw new RuntimeException("Invalid token or user not found");
         }
