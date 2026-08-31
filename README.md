@@ -29,20 +29,47 @@ The Smart Canteen system addresses these challenges by providing a centralized d
 
 The application provides a digital workflow:
 
-
-Browse Menu
-     ↓
-Select Food
-     ↓
-Add to Cart
-     ↓
-Checkout
-     ↓
-Online Payment
-     ↓
-Order Confirmation
-     ↓
-Order Management
+```text
+┌────────────────────┐
+│    Browse Menu     │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│    Select Food     │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│     Add to Cart    │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│      Checkout      │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│   Online Payment   │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│ Order Confirmation │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│  Kitchen Processing│
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│   Status Updates   │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│  Order Tracking    │
+│      by User       │
+└─────────┬──────────┘
+          ↓
+┌────────────────────┐
+│  Order Completed   │
+└────────────────────┘
 
 ✨ Features
 # 👤 User Module
@@ -166,32 +193,68 @@ Combines deterministic responses with generative AI
 The system integrates Razorpay Test Mode for online payment processing.
 
 Payment Architecture
-                User
-                  │
-                  ▼
-              Checkout
-                  │
-                  ▼
-          React Frontend
-                  │
-                  ▼
-        Spring Boot Backend
-                  │
-                  ▼
-        Create Razorpay Order
-                  │
-                  ▼
-        Razorpay Checkout
-                  │
-                  ▼
-          Payment Process
-                  │
-                  ▼
-        Payment Verification
-                  │
-                  ▼
-         Order Confirmation
-Security
+            
+┌───────────────┐
+│     User      │
+└───────┬───────┘
+        │
+        │ Selects items & Checkout
+        ▼
+┌───────────────────┐
+│  React Frontend   │
+└─────────┬─────────┘
+          │
+          │ POST /api/payment/create-order
+          ▼
+┌───────────────────────┐
+│   Spring Boot Backend │
+│                       │
+│  RazorpayClient       │
+│  creates Order        │
+└──────────┬────────────┘
+           │
+           │ Razorpay Order ID
+           ▼
+┌───────────────────────┐
+│       Razorpay        │
+│   Checkout (Test)     │
+└──────────┬────────────┘
+           │
+           │ User completes payment
+           ▼
+┌───────────────────────┐
+│   Payment Response    │
+│                       │
+│ • Payment ID          │
+│ • Order ID            │
+│ • Signature           │
+└──────────┬────────────┘
+           │
+           │ POST /api/payment/verify
+           ▼
+┌───────────────────────┐
+│   Spring Boot Backend │
+│                       │
+│ Verify Signature      │
+│ using Key Secret      │
+└──────────┬────────────┘
+           │
+      ┌────┴─────┐
+      │           │
+    Valid       Invalid
+      │           │
+      ▼           ▼
+┌──────────┐  ┌──────────────┐
+│ Payment  │  │ Payment      │
+│ Verified │  │ Rejected     │
+└────┬─────┘  └──────────────┘
+     │
+     ▼
+┌───────────────────────┐
+│   Order Confirmation  │
+└───────────────────────┘
+
+# Security
 
 The Razorpay Key Secret is stored only on the backend using environment variables.
 
@@ -249,6 +312,7 @@ The secret is never exposed to the frontend.
         │  Payment Gateway    │
         └─────────────────────┘
 # 🛠️ Tech Stack
+
 Layer	Technologies
 Frontend	React.js, JavaScript, HTML5, CSS3
 Backend	Java, Spring Boot
@@ -323,7 +387,7 @@ The application separates functionality based on the user's role.
          Track Order                          Revenue
          Chatbot                               Users
 
-🗄️ Database Design
+# 🗄️ Database Design
 
 The application uses a relational database to manage persistent data.
 
