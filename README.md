@@ -86,7 +86,7 @@ If a query does not match any predefined rule, the request is forwarded to the *
 
 This approach ensures that the chatbot can continue providing basic assistance even when the external AI service is temporarily unavailable.
 
-### 🔄 Chatbot Processing Flow
+ 🔄 Chatbot Processing Flow
 
 
                          User Query
@@ -161,7 +161,7 @@ Provides basic functionality even when the AI service is unavailable
 Combines deterministic responses with generative AI
 
 
-##💳 Online Payment Integration
+#💳 Online Payment Integration
 
 The system integrates Razorpay Test Mode for online payment processing.
 
@@ -199,7 +199,7 @@ The secret is never exposed to the frontend.
 
 ⚠️ Razorpay is currently configured in Test Mode for development and testing purposes.
 
-##🏗️ System Architecture
+#🏗️ System Architecture
                          ┌─────────────────────┐
                          │        USER         │
                          └──────────┬──────────┘
@@ -248,7 +248,7 @@ The secret is never exposed to the frontend.
         │                     │
         │  Payment Gateway    │
         └─────────────────────┘
-##🛠️ Tech Stack
+#🛠️ Tech Stack
 Layer	Technologies
 Frontend	React.js, JavaScript, HTML5, CSS3
 Backend	Java, Spring Boot
@@ -295,7 +295,7 @@ The application implements authentication and role-based access control.
 Users and administrators have different access levels.
 
 Sensitive configuration is managed through environment variables.
-##🔐 Role-Based Access
+#🔐 Role-Based Access
 
 The application separates functionality based on the user's role.
 
@@ -322,7 +322,7 @@ The application separates functionality based on the user's role.
          Track Order                          Revenue
          Chatbot                               Users
 
-##🗄️ Database Design
+# 🗄️ Database Design
 
 The application uses a relational database to manage persistent data.
 
@@ -381,7 +381,7 @@ Users can:
 - View order details
 - Interact with the AI-powered chatbot
 
-### 📦 Order Tracking
+# 📦 Order Tracking
 
 After placing an order, the user can track its progress based on the status updated by the Kitchen Staff.
 
@@ -460,7 +460,7 @@ Menu information
 User information
 Order activity
 
-## ⏱️ Order Cancellation Window
+# ⏱️ Order Cancellation Window
 
 The system provides a **5-minute order cancellation window** for users.
 
@@ -468,7 +468,7 @@ After placing an order, the user can cancel the order within **5 minutes of orde
 
 Once the 5-minute cancellation window expires, the cancellation option is no longer available to the user.
 
-### Cancellation Flow
+## Cancellation Flow
 
 ```text
                     Order Placed
