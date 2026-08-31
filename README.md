@@ -322,7 +322,7 @@ The application separates functionality based on the user's role.
          Track Order                          Revenue
          Chatbot                               Users
 
-# 🗄️ Database Design
+## 🗄️ Database Design
 
 The application uses a relational database to manage persistent data.
 
