@@ -29,7 +29,7 @@ The Smart Canteen system addresses these challenges by providing a centralized d
 
 The application provides a digital workflow:
 
-```text
+
 Browse Menu
      ↓
 Select Food
