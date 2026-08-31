@@ -352,6 +352,9 @@ orders
 └── razorpay_payment_id
 
 The exact database schema may vary according to the current implementation.
+
+---
+
 # 👥 User Roles & System Modules
 
 The Smart Canteen Ordering System follows a **role-based architecture** with three primary roles:
