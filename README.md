@@ -496,29 +496,54 @@ Once the 5-minute cancellation window expires, the cancellation option is no lon
 # 📸 Application Screenshots
 <img width="518" height="802" alt="finalmenu1" src="https://github.com/user-attachments/assets/419d457f-393a-4e12-893c-7defbe8c7d17" />
 
+----
+
 <img width="535" height="797" alt="finalmenu2" src="https://github.com/user-attachments/assets/eb190d1e-273e-4dfd-bf41-93094359d752" />
+
+----
 
 <img width="534" height="987" alt="menu2" src="https://github.com/user-attachments/assets/e8f0e962-e9e7-4f47-87e6-d2cfd22c1414" />
 
+---
+
 <img width="527" height="808" alt="chatbot1" src="https://github.com/user-attachments/assets/e9e0c8eb-d8a9-4e59-b713-e8094cd2fa1b" />
+
+---
 
 <img width="532" height="792" alt="chatbot2" src="https://github.com/user-attachments/assets/533b170f-6849-47e0-ba75-a0baf3b5ed7e" />
 
+---
+
 <img width="528" height="807" alt="chatbot3" src="https://github.com/user-attachments/assets/bac8292e-3bda-48aa-9178-610140f019fd" />
+
+---
 
 <img width="526" height="797" alt="cartfinal" src="https://github.com/user-attachments/assets/69234f19-a54d-40b1-b194-18317ab5ef21" />
 
+---
 <img width="534" height="1093" alt="confirmandpay final" src="https://github.com/user-attachments/assets/4ecbad86-c39f-4880-81f9-c7285aa37dac" />
+
+---
 
 <img width="487" height="795" alt="pay1" src="https://github.com/user-attachments/assets/af16ec9c-bfeb-4c9b-83a2-60f6e006ec11" />
 
+---
+
 <img width="526" height="807" alt="pay2" src="https://github.com/user-attachments/assets/17fbcc78-2a93-4e9a-855f-c82663cc2aef" />
+
+---
 
 <img width="503" height="806" alt="pay3" src="https://github.com/user-attachments/assets/fb8790a1-d12b-4e2b-b0e7-bb2044be8d06" />
 
+---
+
 <img width="534" height="1399" alt="userinfo" src="https://github.com/user-attachments/assets/94542183-974a-4f04-862c-c4e0cbdbd7f0" />
 
+---
+
 <img width="1877" height="905" alt="staffdashfinal" src="https://github.com/user-attachments/assets/1929ec56-d4fb-40a5-9a12-ee8cfda7cfa3" />
+
+---
 
 <img width="1910" height="2057" alt="admindash6" src="https://github.com/user-attachments/assets/ae9f980e-19a1-4493-aff2-940707771bc7" />
 
