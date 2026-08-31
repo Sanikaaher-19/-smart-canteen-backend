@@ -29,9 +29,9 @@ The Smart Canteen system addresses these challenges by providing a centralized d
 
 The application provides a digital workflow:
  
- ┌────────────────────┐
- │    Browse Menu     │
- └─────────┬──────────┘
+┌────────────────────┐
+│    Browse Menu     │
+└─────────┬──────────┘
           ↓
 ┌────────────────────┐
 │    Select Food     │
@@ -54,7 +54,7 @@ The application provides a digital workflow:
 └─────────┬──────────┘
           ↓
 ┌────────────────────┐
-│  Kitchen Processing│
+│ Kitchen Processing │
 └─────────┬──────────┘
           ↓
 ┌────────────────────┐
@@ -69,7 +69,6 @@ The application provides a digital workflow:
 ┌────────────────────┐
 │  Order Completed   │
 └────────────────────┘
-
 ✨ Features
 # 👤 User Module
 
