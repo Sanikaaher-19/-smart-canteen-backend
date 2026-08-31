@@ -323,16 +323,22 @@ The application separates functionality based on the user's role.
          Chatbot                               Users
 
 # 🗄️ Database Design
+
 The application uses a relational database to manage persistent data.
 
 Users
+
 users
 ├── id
 ├── name
 ├── email
 ├── password
 └── role
+
+---
+
 Menu Items
+
 menu_items
 ├── id
 ├── name
@@ -340,7 +346,11 @@ menu_items
 ├── category
 ├── price
 └── available
+
+---
+
 Orders
+
 orders
 ├── id
 ├── user_id
@@ -350,6 +360,7 @@ orders
 ├── payment_status
 ├── razorpay_order_id
 └── razorpay_payment_id
+
 
 The exact database schema may vary according to the current implementation.
 
