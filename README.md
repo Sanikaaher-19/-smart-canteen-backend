@@ -29,46 +29,20 @@ The Smart Canteen system addresses these challenges by providing a centralized d
 
 The application provides a digital workflow:
  
-┌────────────────────┐
-│    Browse Menu     │
-└─────────┬──────────┘
-          ↓
-┌────────────────────┐
-│    Select Food     │
-└─────────┬──────────┘
-          ↓
-┌────────────────────┐
-│     Add to Cart    │
-└─────────┬──────────┘
-          ↓
-┌────────────────────┐
-│      Checkout      │
-└─────────┬──────────┘
-          ↓
-┌────────────────────┐
-│   Online Payment   │
-└─────────┬──────────┘
-          ↓
-┌────────────────────┐
-│ Order Confirmation │
-└─────────┬──────────┘
-          ↓
-┌────────────────────┐
-│ Kitchen Processing │
-└─────────┬──────────┘
-          ↓
-┌────────────────────┐
-│   Status Updates   │
-└─────────┬──────────┘
-          ↓
-┌────────────────────┐
-│  Order Tracking    │
-│      by User       │
-└─────────┬──────────┘
-          ↓
-┌────────────────────┐
-│  Order Completed   │
-└────────────────────┘
+हो, point-wise short आणि professional असा ठेव:
+
+### 🔄 Order Workflow
+
+1. **Browse Menu** – User browses available food items.
+2. **Select Food** – User selects the required items.
+3. **Add to Cart** – Selected items are added to the cart.
+4. **Checkout** – User reviews the order and proceeds to checkout.
+5. **Online Payment** – Payment is completed through Razorpay.
+6. **Order Confirmation** – Order is created after successful payment.
+7. **Kitchen Processing** – Order is received and processed by kitchen staff.
+8. **Status Updates** – Kitchen staff updates the order status.
+9. **Order Tracking** – User tracks the order progress from their dashboard.
+10. **Order Completed** – Order is marked as completed after preparation and delivery.
 
 
 ✨ Features
