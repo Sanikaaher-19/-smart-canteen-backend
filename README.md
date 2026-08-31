@@ -28,11 +28,10 @@ The Smart Canteen system addresses these challenges by providing a centralized d
 ## 💡 Solution
 
 The application provides a digital workflow:
-
- ``text
-┌────────────────────┐
-│    Browse Menu     │
-└─────────┬──────────┘
+ 
+ ┌────────────────────┐
+ │    Browse Menu     │
+ └─────────┬──────────┘
           ↓
 ┌────────────────────┐
 │    Select Food     │
