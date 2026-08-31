@@ -161,7 +161,7 @@ Provides basic functionality even when the AI service is unavailable
 Combines deterministic responses with generative AI
 
 
-# 💳 Online Payment Integration
+💳 Online Payment Integration
 
 The system integrates Razorpay Test Mode for online payment processing.
 
