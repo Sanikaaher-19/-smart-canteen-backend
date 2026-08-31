@@ -45,7 +45,7 @@ Order Confirmation
 Order Management
 
 ✨ Features
-##👤 User Module
+# 👤 User Module
 
 User Registration
 User Login
@@ -64,7 +64,7 @@ Online Payment
 Payment Verification
 AI-powered Chatbot
 
-##👨‍💼 Admin Module
+# 👨‍💼 Admin Module
 
 Secure Admin Login
 Admin Dashboard
@@ -76,7 +76,7 @@ View Customer Orders
 Monitor Order Status
 Manage Menu Items
 
-## 🤖 AI-Powered Chatbot
+# 🤖 AI-Powered Chatbot
 
 The Smart Canteen Ordering System includes a **hybrid chatbot architecture** that combines rule-based responses with an AI-powered conversational layer.
 
@@ -153,7 +153,7 @@ The chatbot is designed with fallback handling so that basic functionality is no
 
 If the Groq API is unavailable or encounters an error, the application can fall back to the predefined response mechanism for supported queries.
 
-##✅ Benefits of This Architecture
+# ✅ Benefits of This Architecture
 Reduces unnecessary AI API requests
 Provides faster responses for common questions
 Reduces dependency on external AI services
@@ -161,7 +161,7 @@ Provides basic functionality even when the AI service is unavailable
 Combines deterministic responses with generative AI
 
 
-#💳 Online Payment Integration
+# 💳 Online Payment Integration
 
 The system integrates Razorpay Test Mode for online payment processing.
 
@@ -199,7 +199,7 @@ The secret is never exposed to the frontend.
 
 ⚠️ Razorpay is currently configured in Test Mode for development and testing purposes.
 
-#🏗️ System Architecture
+# 🏗️ System Architecture
                          ┌─────────────────────┐
                          │        USER         │
                          └──────────┬──────────┘
@@ -248,7 +248,7 @@ The secret is never exposed to the frontend.
         │                     │
         │  Payment Gateway    │
         └─────────────────────┘
-#🛠️ Tech Stack
+# 🛠️ Tech Stack
 Layer	Technologies
 Frontend	React.js, JavaScript, HTML5, CSS3
 Backend	Java, Spring Boot
@@ -261,7 +261,7 @@ AI	Groq API
 API Testing	Postman
 Build Tool	Maven
 Version Control	Git & GitHub
-##🧩 Backend Architecture
+# 🧩 Backend Architecture
 
 The backend follows a layered architecture:
 
@@ -288,14 +288,14 @@ Database Layer
 
 Stores users, menu items, orders, and related application data.
 
-##🔐 Authentication & Security
+# 🔐 Authentication & Security
 
 The application implements authentication and role-based access control.
 
 Users and administrators have different access levels.
 
 Sensitive configuration is managed through environment variables.
-#🔐 Role-Based Access
+# 🔐 Role-Based Access
 
 The application separates functionality based on the user's role.
 
@@ -468,9 +468,9 @@ After placing an order, the user can cancel the order within **5 minutes of orde
 
 Once the 5-minute cancellation window expires, the cancellation option is no longer available to the user.
 
-## Cancellation Flow
+# Cancellation Flow
 
-```text
+
                     Order Placed
                          │
                          ▼
@@ -489,7 +489,9 @@ Once the 5-minute cancellation window expires, the cancellation option is no lon
               ▼
       Update Order Status
 
-📸 Application Screenshots
+
+
+# 📸 Application Screenshots
 <img width="518" height="802" alt="finalmenu1" src="https://github.com/user-attachments/assets/419d457f-393a-4e12-893c-7defbe8c7d17" />
 <img width="535" height="797" alt="finalmenu2" src="https://github.com/user-attachments/assets/eb190d1e-273e-4dfd-bf41-93094359d752" />
 <img width="534" height="987" alt="menu2" src="https://github.com/user-attachments/assets/e8f0e962-e9e7-4f47-87e6-d2cfd22c1414" />
